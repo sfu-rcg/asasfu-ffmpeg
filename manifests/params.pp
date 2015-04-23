@@ -9,8 +9,8 @@ class ffmpeg::params {
       case $::operatingsystem {
         CentOS: {
           case $::operatingsystemmajrelease {
-            6: { $required_repos = 'atrpms,repoforge' }
-            7: { $required_repos = 'atrpms,epel,repoforge,nux-dextop' }
+            6: { $required_repos = 'atrpms' }
+            7: { $required_repos = 'atrpms' }
             default: {
               $required_repos = ''
               fail("${::operatingsystem} version ${::operatingsystemmajrelease} not supported")

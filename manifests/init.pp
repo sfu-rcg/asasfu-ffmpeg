@@ -28,10 +28,8 @@ class ffmpeg (
   $ensure_version = 'latest',
   $required_repos = $::ffmpeg::params::required_repos
 ) inherits ::ffmpeg::params {
-  include ::yumrepos
   package { 'ffmpeg':
-    ensure => "${ensure_version}",
+    ensure          => "${ensure_version}",
     install_options => { "--enablerepo" => "${required_repos}" },
-    require => [ Class[::yumrepos] ],
   }
 }
